@@ -1,7 +1,7 @@
 # Projektmunka
 ***
 
-**Készítők**
+**Készítők:**
 1. Story
    * Barkóczi Botond
 2. Weboldal
