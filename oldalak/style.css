@@ -242,22 +242,79 @@ html {
 
 .jobb {
     text-align: end;
+    align-items: end;
+
+    margin-left: auto;
 }
 
 
+.kozep {
+    text-align: center;
 
-.bal, .jobb {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.bal, .jobb, .kozep {
     min-height: 100%;
     padding: 15px;
 }
 
 
+
+
+
+
 .szoveg h2 {
     color: white;
     font-weight: bolder;
+    width: fit-content;
     margin-left: 30px;
     margin-right: 30px;
 }
+
+.szoveg h3 {
+    width: fit-content;
+    font-style: italic;
+    font-size: larger;
+    color: rgb(150, 150, 150);
+}
+
+.szoveg h3::before {
+    content: "(";
+}
+.szoveg h3::after {
+    content: ")";
+}
+
+
+
+.megnevezes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.jobb .megnevezes {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+
+.kozep .megnevezes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+
 
 .szoveg .tarsalgas {
     margin-bottom: 10px;
@@ -286,7 +343,7 @@ html {
 
 .buttons {
     height: 100%;
-    max-width: 15%;
+    max-width: 30%;
 
     display: flex;
     flex-direction: column;
@@ -294,6 +351,9 @@ html {
     align-items: center;
 
     text-align: center;
+
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -356,7 +416,7 @@ html {
 
 
 
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 799px) {
     body {
         background-color: black;
     }
