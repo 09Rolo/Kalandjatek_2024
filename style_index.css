@@ -258,6 +258,19 @@ html {
 
 
 
+ul, ol {
+    list-style-position: inside;
+}
+
+li {
+    margin: 5px;
+    font-size: larger;
+}
+
+
+ol ul {
+    margin-left: 15px;
+}
 
 
 
