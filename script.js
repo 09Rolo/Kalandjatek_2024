@@ -8,6 +8,8 @@ function loaded_oldal() {
 
 
 function loaded() {
+    loaded_oldal()
+    
     let udv = document.getElementById("udv")
     let bevezeto = document.getElementById("bevezeto")
 
