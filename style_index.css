@@ -259,6 +259,7 @@ html {
 
 
 ul, ol {
+    margin-left: 20px;
     list-style-position: inside;
 }
 
@@ -272,6 +273,21 @@ ol ul {
     margin-left: 15px;
 }
 
+ul a {
+    color: white;
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+ul a:hover {
+    color: gray;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 20px;
+
+    transition: 0.2s;
+}
 
 
 
