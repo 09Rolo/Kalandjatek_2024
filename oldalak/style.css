@@ -618,6 +618,22 @@ hr {
 
 
 @media screen and (max-width: 799px) {
+    .bg > * {
+        display: none;
+    }
+
+
+    .bg::before {
+        display: inline;
+        content: "A teljes élményhez gépen játsz a játékkal!";
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        font-size: 50px;
+        padding: 10px;
+    }
+    
+    /*
+
     body {
         background-color: black;
     }
@@ -684,6 +700,7 @@ hr {
     .buttons > * {
         margin-bottom: 10px;
     }
+    */
 }
 
 
