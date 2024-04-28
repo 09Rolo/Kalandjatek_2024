@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Kalandjáték</title>
+    <title>Elveszett birodalom</title>
 </head>
+
 <body onload="loaded_oldal()">
     <div id="loading">
         <h1>/</h1>
@@ -17,49 +20,55 @@
     <div id="fuggony"></div>
 
 
-                                            <!-- A háttér állítása -->
-    <div id="content" class="bg" style="background-image: url('../imgs/joeelojon.webp');">
+    <!-- A háttér állítása -->
+    <div id="content" class="bg" style="background-image: url('../imgs/bg_forest.webp');">
 
-        <div class="tartalom">
-            <!-- Ki is lehet törölni az image divet, vagy csak az egyiket esetleg ha csak egy képet akarunk -->
-            <div class="imgs">
-                <div class="bal">
-                    <img src="../imgs/fohos2.png" class="img-fluid">
+        <div class="img bali float-start">
+            <div class="megnevezes">
+                <h2>Wanda</h2>
+            </div>
+            <img src="../imgs/fohos2.png" class="img-fluid">
+        </div>
+
+
+        <div class="szoveg">
+            <div class="kozep col-md-9 col-sm-12">
+                <div class="megnevezes">
+                    <h2>Később</h2>
+                    <h3>1,5 év múlva</h3>
                 </div>
-
-                <div class="buttons">
-                    <a href="./negyedik.html">Később</a>
-                </div>
-
-                <div class="jobb">
-                    <img src="../imgs/abu.png" class="img-fluid">
+                <div class="tarsalgas">
+                    <p id="kozep_p">
+                        Wanda már-már kezd lemondani arról, hogy megtalálja a krokodilt.
+                        Wanda egy profi tolvaj lett, kisebb uralkodóktól raból ékszereket magának. Hűséges társa, Abu a mosómaci is vele tart. Egy már jól megszokott kalandra indulnak, azonban most csapdát állítanak nekik, ami sikerrel jár. Wandáék beleesnek egy jól kidolgozott verembe, ahol a következővel találják magukat szembe: Vaas-szal Moira hűséges csatlósával, aki egy megszállott elme, aki az őrület fogalmával ismerteti őket</p>
                 </div>
             </div>
 
+            <hr>
 
-
-            <div class="szoveg">
-
-                <!-- Vagy itt egy lehetőség csak story mesélésre, párbeszéd nélkül, akkor középen lesz szöveg csak, de a többit ki kell törölni -->
-                <div class="kozep col-md-9 col-sm-12">
-                    <div class="megnevezes">
-                        <h3>1,5 év múlva</h3>
-                    </div>
-                    <div class="tarsalgas">
-                        <p>Wanda már-már kezd lemondani arról, hogy megtalálja a krokodilt.</p>
-                        <p>Wanda egy profi tolvaj lett, kisebb uralkodóktól raból ékszereket magának. Hűséges társa, Abu a mosómaci is vele tart. Egy már jól megszokott kalandra indulnak, azonban most csapdát állítanak nekik, ami sikerrel jár. Wandáék beleesnek egy jól kidolgozott verembe, ahol a következővel találják magukat szembe: Vaas-szal Moira hűséges csatlósával, aki egy megszállott elme, aki az őrület fogalmával ismerteti őket</p>
-                    </div>
-                </div>
-        
-
+            <div class="buttons">
+                <a href="./negyedik.html">Tovább</a>
             </div>
+
 
         </div>
+
+
+        <div class="img jobbi float-end">
+            <div class="megnevezes">
+                <h2>Abu</h2>
+            </div>
+            <img src="../imgs/abu.png" class="img-fluid">
+        </div>
+
 
     </div>
 
 
     <script src="../script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

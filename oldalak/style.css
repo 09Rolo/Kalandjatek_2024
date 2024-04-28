@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
 /*font import*/
 
 * {
@@ -134,34 +135,15 @@ html {
 
 
 #content {
+    display: flex;
+    flex-direction: row;
+
     width: 100%;
     height: 100lvh;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+    position: relative;
+    z-index: 5;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.tartalom {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    min-width: 100%;
     overflow: hidden;
 }
 
@@ -171,25 +153,25 @@ html {
 
 
 
-.tartalom .imgs{
+.img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     position: relative;
     top: 0px;
 
-    margin-left: auto;
-    margin-right: auto;
-
-    min-width: 100%;
-    height: 60%;
+    min-width: 30%;
+    max-width: 30%;
+    height: 100lvh;
 
     padding: 10px;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
+    z-index: 1;
 }
 
-.tartalom img {
+img {
     height: 100%;
     width: 100%;
     object-fit: contain;
@@ -201,40 +183,41 @@ html {
 }
 
 
-.tartalom .imgs .bal, .tartalom .imgs .jobb {
-    height: 100%;
-}
 
 
 
 
 
-
-
-
-.tartalom .szoveg {
+.szoveg {
     display: flex;
     flex-direction: row;
+    align-content: flex-start;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
 
-    min-width: 100%;
-    height: 40%;
+    min-width: 40%;
+    max-width: 40%;
+    height: 100lvh;
     padding: 10px;
 
     background-color: rgba(0, 0, 0, 0.5);
 
     border-top: 3px solid black;
-    overflow-y: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    position: relative;
+    z-index: 2;
 }
 
-.tartalom .szoveg p {
+.szoveg p {
     font-size: 18px;
     margin-bottom: 15px;
     line-height: 150%;
 
     color: lightgray;
+}
+.szoveg p:last-child {
+    margin-bottom: 0px;
 }
 
 
@@ -249,6 +232,7 @@ html {
 
 
 .kozep {
+    height: fit-content;
     text-align: center;
 
     margin-left: auto;
@@ -256,8 +240,7 @@ html {
 }
 
 
-.bal, .jobb, .kozep {
-    min-height: 100%;
+.bal, .jobb, .kozep, .bali, .jobbi {
     padding: 15px;
 }
 
@@ -266,7 +249,7 @@ html {
 
 
 
-.szoveg h2 {
+.megnevezes h2 {
     color: white;
     font-weight: bolder;
     width: fit-content;
@@ -274,17 +257,17 @@ html {
     margin-right: 30px;
 }
 
-.szoveg h3 {
+.megnevezes h3 {
     width: fit-content;
     font-style: italic;
     font-size: larger;
     color: rgb(150, 150, 150);
 }
 
-.szoveg h3::before {
+.megnevezes h3::before {
     content: "(";
 }
-.szoveg h3::after {
+.megnevezes h3::after {
     content: ")";
 }
 
@@ -336,14 +319,26 @@ html {
 
 
 
+hr {
+    width: 100%;
+    height: 5px;
+    opacity: 1;
+    color: white;
+    background-color: white;
+    border-radius: 20px;
+
+    margin-top: 150px;
+}
+
 
 
 
 
 
 .buttons {
-    height: 100%;
-    max-width: 30%;
+    height: fit-content;
+    min-width: 50%;
+    max-width: 90%;
 
     display: flex;
     flex-direction: column;
@@ -354,6 +349,7 @@ html {
 
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 60px;
 }
 
 
@@ -370,6 +366,8 @@ html {
     font-size: 20px;
 
     transition: 0.2s;
+
+    margin-bottom: 30px;
 }
 
 
@@ -390,6 +388,29 @@ html {
 
 
 
+.tarsalgas button {
+    padding: 10px;
+
+    border-radius: 30px;
+    border: 1px solid gray;
+
+    background-color: rgba(20, 20, 20, 0.8);
+    color: white;
+
+    font-size: 20px;
+
+    transition: 0.2s;
+}
+
+.tarsalgas button:hover, .tarsalgas a:hover {
+    color: gray;
+    text-decoration: underline;
+    border: 2px dotted green;
+
+    transition: 0.2s;
+}
+
+
 
 
 
@@ -401,6 +422,190 @@ html {
     text-transform: uppercase;
     letter-spacing: 10px;
 }
+
+
+
+
+
+
+
+
+
+.bali {
+    animation-name: beuszas_balimage;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+    animation-play-state: paused;
+}
+
+.jobbi {
+    animation-name: beuszas_jobbimage;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+    animation-play-state: paused;
+}
+
+
+
+
+.szoveg .bal {
+    animation-name: beuszas_bal;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+
+    animation-play-state: paused;
+}
+
+
+.szoveg .jobb {
+    animation-name: beuszas_jobb;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+
+    animation-play-state: paused;
+}
+
+
+.szoveg .kozep {
+    animation-name: beuszas_kozep;
+    animation-delay: 0.5s;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+
+
+
+
+
+
+/*nem tudom hogyan kellene beúsztatni*/
+
+@keyframes beuszas_bal {
+    from {
+        transform: translate(-100%);
+        width: 51%;
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0%);
+        width: 80%;
+        opacity: 1;
+    }
+}
+
+
+
+@keyframes beuszas_jobb {
+    from {
+        transform: translate(100%);
+        width: 51%;
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0%);
+        width: 80%;
+        opacity: 1;
+    }
+}
+
+
+
+
+
+@keyframes beuszas_kozep {
+    from {
+        transform: translate(-100%);
+        width: 80%;
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0%);
+        width: 80%;
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+
+
+@keyframes beuszas_balimage {
+    from {
+        transform: translate(-100%);
+        width: 30%;
+        height: 30%;
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0%);
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+}
+
+
+
+@keyframes beuszas_jobbimage {
+    from {
+        transform: translate(100%);
+        width: 30%;
+        height: 30%;
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0%);
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+}
+
+
+
+
+
+@keyframes lebeges {
+    0% {
+        transform: translateY(5px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(5px);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -431,28 +636,46 @@ html {
 
 
 
-    .szoveg .bal, .szoveg .jobb {
-        height: fit-content;
-
-        margin-bottom: 50px;
-    }
-
-    .szoveg .jobb, .szoveg .bal {
-        width: 100%;
-    }
-
-
-
-    .tartalom .imgs{
+    #content {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-
-        width: 100%;
-        overflow-y: scroll;
-        overflow-x: hidden;
     }
+
+
+
+    .img {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        max-height: 25%;
+        min-width: fit-content;
+        max-width: 100%;
+        overflow-x: hidden;
+        object-fit: contain;
+    }
+
+
+
+    img {
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+
+
+
+    .szoveg {
+        min-width: 100%;
+        min-height: 40%;
+    }
+
+
+
+
 
     .buttons {
         min-width: 100%;
@@ -461,4 +684,206 @@ html {
     .buttons > * {
         margin-bottom: 10px;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    position: absolute;
+    z-index: 6;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 60%;
+    max-height: 80%;
+
+
+    font-family: "Kalam", cursive;
+    color: rgb(220, 220, 220);
+
+
+    background-color: rgba(0, 0, 0, 0.7);
+    background-image: url("../imgs/book.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+
+
+    animation-name: book;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+
+
+    display: none;
+}
+
+
+
+
+@keyframes book {
+    from {
+        width: 10%;
+        height: 20%;
+    }
+    to {
+        width: 60%;
+        height: 80%;
+    }
+}
+
+
+
+
+#book .tartalom {
+    width: 90%;
+    height: 90%;
+
+    margin-top: 20px;
+    margin-left: 30px;
+
+    overflow-y: scroll;
+}
+
+
+#book #minigame {
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-height: 100%;
+    min-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.minigame_foimage {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+
+#minigame hr {
+    margin-top: 30px;
+}   
+
+
+
+
+
+
+#minigame button {
+    padding: 10px;
+
+    border-radius: 30px;
+    border: 1px solid gray;
+    text-align: center;
+
+    background-color: rgba(20, 20, 20, 0.8);
+    color: white;
+
+    font-size: 20px;
+
+    transition: 0.2s;
+
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+
+#minigame button:hover {
+    color: gray;
+    text-decoration: underline;
+
+    transition: 0.2s;
+}
+
+
+
+
+
+
+
+.dragplace {
+    width: 100px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+
+.dragplace img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.dragok {
+    display: flex;
+    flex-direction: row;
+
+    width: 50%;
+    justify-content: space-evenly;
 }
