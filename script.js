@@ -287,6 +287,25 @@ function kuzdelem_vaassal(oke) {
         book.style.display = "flex"
         book.style.animationPlayState = "running"
 
+        let maxms = 8
+        for (let i = 0; i <= maxms; i++) {
+            setTimeout(() => {
+                document.getElementById("msbillhez").innerHTML = maxms - i
+            }, i*1000)
+        }
+
+
+        setTimeout(() => {
+            let curr_loc = window.location.href
+            let loc_len = curr_loc.length
+            let loc_split = curr_loc.split("/")
+            let loc_slice_that = loc_split[loc_split.length - 1]
+
+            let locslice = curr_loc.slice(0, loc_len - loc_slice_that.length)
+            
+            window.location.replace(locslice + "gameover.html")
+        }, maxms*1000)
+
 
         window.addEventListener(
             "keydown",
