@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../imgs/amulet.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Elveszett birodalom</title>
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+
+        #content {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+
+            background-blend-mode: darken;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #content p {
+            position: relative;
+            top: 15%;
+            font-size: 30px;
+
+            border: 2px solid rgb(140, 35, 35);
+            border-radius: 20px;
+            padding: 10px;
+            color: white;
+            background-color: black;
+        }
+
+        #content h1 {
+            position: relative;
+            top: 10%;
+            padding: 20px;
+
+            border: 2px solid black;
+            border-radius: 20px;
+            background-color: rgb(140, 35, 35);
+
+            animation-name: vege;
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+        }
+
+
+        @keyframes vege {
+            0% {
+                transform: rotateY(0deg);
+            } 
+
+            50% {
+                transform: rotateY(10deg);
+            }
+
+            100% {
+                transform: rotateY(0deg);
+            }
+        }
+
+
+
+
+        .bg {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+
+            min-width: 100%;
+            min-height: 100vh;
+            width: 100%;
+            height: 100vh;
+            max-width: 100%;
+            max-height: 100vh;
+
+            z-index: 0;
+            background-color: black;
+            background-blend-mode: luminosity;
+        }
+
+        #bgvideo {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+
+            min-width: 100%;
+            min-height: 100vh;
+            width: 100%;
+            height: 100vh;
+            max-width: 100%;
+            max-height: 100vh;
+            
+            z-index: -1;
+        }
+
+
+        #bgvideo h1 {
+            font-family: "Jersey 15", sans-serif;
+
+            position: absolute;
+            top: 35%;
+            width: 100%;
+            height: fit-content;
+            text-align: center;
+            border: none;
+            background: none;
+            animation: none;
+
+            color: red;
+            font-size: 120px;
+            font-weight: normal;
+            -webkit-text-stroke-width: 2.2px;
+            -webkit-text-stroke-color: black;
+        }
+
+
+        a {
+            position: absolute;
+            bottom: 5%;
+            
+            font-size: 30px;
+            padding: 10px;
+            border-radius: 30px;
+            border: 2px solid black;
+            background-color: black;
+
+            text-decoration: none;
+
+            color: white;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            font-size: 31px;
+            text-decoration: underline;
+            border: 2px solid red;
+
+            transition: 0.3s;
+        }
+
+    </style>
+
+</head>
+
+<body onload="loaded_oldal('gameover')">
+    <div id="loading">
+        <h1>/</h1>
+        <p>Betöltés...</p>
+    </div>
+
+    <div id="fuggony"></div>
+
+
+
+    <div id="content">
+        <div class="" id="bgvideo">
+            <h1>Game Over</h1>
+            <video autoplay muted loop>
+                <source src="../imgs/glitch.mp4" type="video/mp4">
+              </video>
+        </div>
+
+        <div class="bg" style="background-image: url('../imgs/bg.png');"></div>
+
+
+            <h1>Sajnálom, de a játék véget ért szamodra!</h1>
+    
+            <p>Köszi, hogy játszottál, remélem tetszett :)</p>
+
+            <a href="../index.html">Újrakezdés</a>
+    </div>
+        
+
+
+    <script src="../script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -6,7 +6,20 @@ function loaded_oldal(what) {
 
     if (what) {
         if (what != "index") {
-            beuszas()
+            if (what != "gameover") {
+                beuszas()
+            }
+        }
+        
+        if (what == "gameover") {
+            let bgvid = document.getElementById("bgvideo")
+
+            bgvid.style.zIndex = 5
+
+            setTimeout(() => {
+                bgvid.style.zIndex = -1
+            }, 2500);
+
         }
     } else {
         beuszas()
@@ -159,6 +172,9 @@ function iras(elem) {
 
 /*--------------------------------------------------------------------------*/
 
+
+/* Nem saját */
+
 function allowDrop(ev) {
     ev.preventDefault();
 }
@@ -173,6 +189,7 @@ function drop(ev) {
     ev.target.appendChild(document.getElementById(data));
 }
 
+/**/
 
 
 
@@ -180,6 +197,8 @@ function drop(ev) {
 
 
 
+
+/* Saját */
 
 
 function alexfeladvany(megoldas) {
@@ -217,3 +236,116 @@ function alexfeladvany(megoldas) {
     }
 }
 
+
+
+
+
+
+function bohocugras() {
+    let content = document.getElementById("content")
+
+    content.innerHTML = `
+        <h1 id="szivroham_bohoc">Az arcodba ugrott egy bohóc, és szívrohamot kaptál... kár érted</h1>
+        <img id="bohoc" src="../imgs/bohoc.jpg">
+    `
+
+    let bohoc = document.getElementById("bohoc")
+
+    bohoc.style.animationPlayState = "running"
+
+
+
+
+    let curr_loc = window.location.href
+    let loc_len = curr_loc.length
+    let loc_split = curr_loc.split("/")
+    let loc_slice_that = loc_split[loc_split.length - 1]
+
+    let locslice = curr_loc.slice(0, loc_len - loc_slice_that.length)
+    /* huhh */
+
+    console.log(locslice)
+
+
+    setTimeout(() => {
+        //game overre
+        window.location.replace(locslice + "gameover.html")
+    }, 7000);
+}
+
+
+
+
+
+
+let keys = []
+
+function kuzdelem_vaassal(oke) {
+    let book = document.getElementById("book")
+
+    if (!oke) {
+        book.style.display = "flex"
+        book.style.animationPlayState = "running"
+
+
+        window.addEventListener(
+            "keydown",
+            (event) => {
+              if (event.defaultPrevented) {
+                return;
+              }
+          
+              let handled = false;
+              if (event.key !== undefined) {
+                
+
+                keys += event.key
+
+                
+                console.log(keys)
+
+                
+                handled = true;
+              } else if (event.keyCode !== undefined) {
+                handled = true;
+              }
+          
+              if (handled) {
+                event.preventDefault();
+              }
+            },
+            true,
+          );
+
+    } else if (oke == "reset") {
+
+        window.location.reload()
+
+    } else if (oke == "oke") {
+
+        if (keys == "bklj") {
+            //oké
+            let curr_loc = window.location.href
+            let loc_len = curr_loc.length
+            let loc_split = curr_loc.split("/")
+            let loc_slice_that = loc_split[loc_split.length - 1]
+        
+            let locslice = curr_loc.slice(0, loc_len - loc_slice_that.length)
+
+            window.location.replace(locslice + "nyolcadik.html")
+
+        } else {
+            //nemoké
+            let curr_loc = window.location.href
+            let loc_len = curr_loc.length
+            let loc_split = curr_loc.split("/")
+            let loc_slice_that = loc_split[loc_split.length - 1]
+        
+            let locslice = curr_loc.slice(0, loc_len - loc_slice_that.length)
+
+            window.location.replace(locslice + "gameover.html")
+
+        }
+        
+    }
+}
