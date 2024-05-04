@@ -1,3 +1,6 @@
+/* Minden sort próbáltam én saját magam megírni, van vagy 15 amit nem én írtam, a tösbbi saját */
+
+
 kurzor()
 
 let loading = document.getElementById("loading")
@@ -271,7 +274,9 @@ function kurzor() {
 
                 cursor.classList.remove("mouse_leave_buttons")
                 cursor.classList.add("mouse_enter_buttons")
-                cursor_border.style.border = "3px solid white"
+                cursor_border.style.border = "3px solid red"
+                cursor_border.style.width = "30px"
+                cursor_border.style.height = "30px"
                 cursor_border.classList.remove("cursor_pulse")
             })
     
@@ -283,6 +288,8 @@ function kurzor() {
 
                 cursor.classList.add("mouse_leave_buttons")
                 cursor.classList.remove("mouse_enter_buttons")
+                cursor_border.style.width = "50px"
+                cursor_border.style.height = "50px"
                 cursor_border.style.border = "2px solid rgba(255, 255, 255, 0.5)"
                 cursor_border.classList.add("cursor_pulse")
             })
@@ -300,7 +307,9 @@ function kurzor() {
 
                 cursor.classList.remove("mouse_leave_buttons")
                 cursor.classList.add("mouse_enter_buttons")
-                cursor_border.style.border = "3px solid white"
+                cursor_border.style.border = "3px solid red"
+                cursor_border.style.width = "30px"
+                cursor_border.style.height = "30px"
                 cursor_border.classList.remove("cursor_pulse")
             })
     
@@ -312,6 +321,8 @@ function kurzor() {
 
                 cursor.classList.add("mouse_leave_buttons")
                 cursor.classList.remove("mouse_enter_buttons")
+                cursor_border.style.width = "50px"
+                cursor_border.style.height = "50px"
                 cursor_border.style.border = "2px solid rgba(255, 255, 255, 0.5)"
                 cursor_border.classList.add("cursor_pulse")
             })
@@ -523,7 +534,7 @@ function drop(ev) {
 
 
 
-/* Saját */
+/* Innentől megint */
 
 
 function alexfeladvany(megoldas) {
