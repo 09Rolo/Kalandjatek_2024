@@ -543,7 +543,7 @@ a:hover, button:hover {
 
 .slider, .slider .tartalom {
     display: flex;
-    aspect-ratio: 16 / 9;
+
     overflow: hidden;
     scroll-behavior: smooth;
 }
