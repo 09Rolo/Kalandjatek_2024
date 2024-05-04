@@ -1,3 +1,5 @@
+kurzor()
+
 let loading = document.getElementById("loading")
 
 function loaded_oldal(what) {
@@ -45,6 +47,329 @@ function loaded() {
         bevezeto.style.display = ""
     }, 3000);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function kurzor() {
+    let body = document.querySelector("body")
+    body.id = "body"
+    body = document.getElementById("body")
+    
+
+    if(!document.querySelector("#kurzorvaltas")) {
+        body.innerHTML += `
+            <div class='cursor'></div>
+            <div class='cursor-border cursor_pulse'></div>
+        
+            <div id="kurzorvaltas">
+                <button onclick="changeKurzor()">Kurzor váltása</button>
+            </div>
+        `
+    } else {
+        body.innerHTML += `
+            <div class='cursor'></div>
+            <div class='cursor-border cursor_pulse'></div>
+        `
+    }
+
+    
+    
+    const cursor = document.querySelector(".cursor")
+    const cursor_border = document.querySelector(".cursor-border")
+    
+    document.addEventListener("mousemove", (merre) => {
+    
+        const posX = merre.clientX
+        const posY = merre.clientY
+    
+        
+        //cursor.setAttribute("style", "top: " + merre.clientY + "px" +    "; left: " + merre.clientX + "px;")
+        cursor.style.left = posX + "px"
+        cursor.style.top = posY + "px"
+    
+        cursor_border.style.left = posX + "px"
+        cursor_border.style.top = posY + "px"
+    
+    
+        cursor_border.animate({
+            left: posX + "px",
+            top: posY + "px"
+        }, {duration: 500, fill: "forwards"})
+    })
+
+
+
+
+    document.addEventListener("click", (args) => {
+        console.log(args)
+
+        if (args.target.localName == "img") {
+            console.log("img")
+
+
+            cursor_border.classList.add("clicked_img")
+
+
+            setTimeout(() => {
+                cursor_border.classList.remove("clicked_img")
+            }, 1000)
+
+
+        } else {
+            cursor_border.classList.add("clicked_cursor")
+
+            setTimeout(() => {
+                cursor_border.classList.remove("clicked_cursor")
+            }, 400)
+        }
+
+        
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+    setTimeout(() => {
+
+        let balok = document.getElementsByClassName("bal")
+    
+
+        for(let i = 0; i < balok.length; i++) {
+            let bal_valamelyik = document.getElementById("bal_" + i)
+    
+    
+            bal_valamelyik.addEventListener("mouseenter", () => {
+                cursor.classList.remove("mouse_enter_buttons")
+                cursor.classList.remove("mouse_leave_buttons")
+
+                cursor.classList.remove("mouse_leave")
+                cursor.classList.add("mouse_enter")
+                cursor_border.style.border = "none"
+                cursor_border.classList.remove("cursor_pulse")
+            })
+    
+            
+    
+            bal_valamelyik.addEventListener("mouseleave", () => {
+                cursor.classList.remove("mouse_enter_buttons")
+                cursor.classList.remove("mouse_leave_buttons")
+                
+                cursor.classList.add("mouse_leave")
+                cursor.classList.remove("mouse_enter")
+                cursor_border.style.border = "2px solid rgba(255, 255, 255, 0.5)"
+                cursor_border.classList.add("cursor_pulse")
+            })
+        }
+    }, 2000)
+
+
+
+
+    setTimeout(() => {
+
+        let jobbok = document.getElementsByClassName("jobb")
+
+        for(let v = 0; v < jobbok.length; v++) {
+            let jobb_valamelyik = document.getElementById("jobb_" + v)
+    
+    
+            jobb_valamelyik.addEventListener("mouseenter", () => {
+                cursor.classList.remove("mouse_enter_buttons")
+                cursor.classList.remove("mouse_leave_buttons")
+
+                cursor.classList.remove("mouse_leave")
+                cursor.classList.add("mouse_enter")
+                cursor_border.style.border = "none"
+                cursor_border.classList.remove("cursor_pulse")
+            })
+    
+            
+    
+            jobb_valamelyik.addEventListener("mouseleave", () => {
+                cursor.classList.remove("mouse_enter_buttons")
+                cursor.classList.remove("mouse_leave_buttons")
+
+                cursor.classList.add("mouse_leave")
+                cursor.classList.remove("mouse_enter")
+                cursor_border.style.border = "2px solid rgba(255, 255, 255, 0.5)"
+                cursor_border.classList.add("cursor_pulse")
+            })
+        }
+
+    }, 2000)
+
+
+
+
+    setTimeout(() => {
+
+        let kozep = document.getElementById("kozep_p")
+
+    
+    
+        kozep.addEventListener("mouseenter", () => {
+            cursor.classList.remove("mouse_enter_buttons")
+            cursor.classList.remove("mouse_leave_buttons")
+
+            cursor.classList.remove("mouse_leave")
+            cursor.classList.add("mouse_enter")
+            cursor_border.style.border = "none"
+            cursor_border.classList.remove("cursor_pulse")
+        })
+    
+            
+    
+        kozep.addEventListener("mouseleave", () => {
+            cursor.classList.remove("mouse_enter_buttons")
+            cursor.classList.remove("mouse_leave_buttons")
+
+            cursor.classList.add("mouse_leave")
+            cursor.classList.remove("mouse_enter")
+            cursor_border.style.border = "2px solid rgba(255, 255, 255, 0.5)"
+            cursor_border.classList.add("cursor_pulse")
+        })
+
+    }, 2000)
+
+
+
+
+
+    setTimeout(() => {
+        let buttons = document.getElementsByTagName("button")
+
+        for(let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("mouseenter", () => {
+                cursor.classList.remove("mouse_enter")
+                cursor.classList.remove("mouse_leave")
+
+                cursor.classList.remove("mouse_leave_buttons")
+                cursor.classList.add("mouse_enter_buttons")
+                cursor_border.style.border = "3px solid white"
+                cursor_border.classList.remove("cursor_pulse")
+            })
+    
+            
+    
+            buttons[i].addEventListener("mouseleave", () => {
+                cursor.classList.remove("mouse_enter")
+                cursor.classList.remove("mouse_leave")
+
+                cursor.classList.add("mouse_leave_buttons")
+                cursor.classList.remove("mouse_enter_buttons")
+                cursor_border.style.border = "2px solid rgba(255, 255, 255, 0.5)"
+                cursor_border.classList.add("cursor_pulse")
+            })
+        }
+
+
+
+
+        let ak = document.getElementsByTagName("a")
+
+        for(let i = 0; i < ak.length; i++) {
+            ak[i].addEventListener("mouseenter", () => {
+                cursor.classList.remove("mouse_enter")
+                cursor.classList.remove("mouse_leave")
+
+                cursor.classList.remove("mouse_leave_buttons")
+                cursor.classList.add("mouse_enter_buttons")
+                cursor_border.style.border = "3px solid white"
+                cursor_border.classList.remove("cursor_pulse")
+            })
+    
+            
+    
+            ak[i].addEventListener("mouseleave", () => {
+                cursor.classList.remove("mouse_enter")
+                cursor.classList.remove("mouse_leave")
+
+                cursor.classList.add("mouse_leave_buttons")
+                cursor.classList.remove("mouse_enter_buttons")
+                cursor_border.style.border = "2px solid rgba(255, 255, 255, 0.5)"
+                cursor_border.classList.add("cursor_pulse")
+            })
+        }
+
+    }, 2000);
+
+
+
+}
+
+
+
+function changeKurzor() {
+    let body = document.getElementById("body")
+    
+    
+    const cursor = document.querySelector(".cursor")
+    const cursor_border = document.querySelector(".cursor-border")
+    
+
+    if (document.querySelector(".cursor")) {
+        cursor.remove()
+        cursor_border.remove()
+
+        body.style.cursor = "url('../imgs/cursor.png'), auto"
+
+
+
+        let ak = document.querySelector("a")
+        let buttons = document.querySelector("button")
+
+        buttons.classList.add("button_with_changed_cursor")
+        ak.classList.add("button_with_changed_cursor")
+       
+
+
+    } else {
+        body.style.cursor = "none"
+        let ak = document.querySelector("a")
+        let buttons = document.querySelector("button")
+
+        buttons.classList.remove("button_with_changed_cursor")
+        ak.classList.remove("button_with_changed_cursor")
+
+        kurzor()
+    }
+    
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -287,7 +612,7 @@ function kuzdelem_vaassal(oke) {
         book.style.display = "flex"
         book.style.animationPlayState = "running"
 
-        let maxms = 8
+        let maxms = 10
         for (let i = 0; i <= maxms; i++) {
             setTimeout(() => {
                 document.getElementById("msbillhez").innerHTML = maxms - i
@@ -302,7 +627,7 @@ function kuzdelem_vaassal(oke) {
             let loc_slice_that = loc_split[loc_split.length - 1]
 
             let locslice = curr_loc.slice(0, loc_len - loc_slice_that.length)
-            
+
             window.location.replace(locslice + "gameover.html")
         }, maxms*1000)
 

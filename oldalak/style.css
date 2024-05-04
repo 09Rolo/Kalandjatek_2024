@@ -916,3 +916,319 @@ hr {
         opacity: 1;
     }
 }
+
+
+
+
+
+
+
+
+
+/*kurzor*/
+body {
+    overflow: hidden;
+}
+
+
+body {
+    /*cursor: url("../imgs/cursor.png"), auto;*/
+    cursor: none;
+}
+
+a:hover, button:hover {
+    cursor: none;
+}
+
+
+.cursor {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+
+    z-index: 999;
+    pointer-events: none;
+}
+
+
+
+
+.cursor-border {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    background-color: none;
+
+    z-index: 999;
+    pointer-events: none;
+}
+
+
+
+.cursor_pulse::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border: 8px solid gray;
+    border-radius: 50%;
+    opacity: 0.5;
+    
+    top: -2px;
+    left: -2px;
+
+
+    animation-name: cursorAnim1;
+    animation-duration: 0.4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+
+
+
+
+
+#kurzorvaltas {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 10px;
+
+    z-index: 8;
+}
+
+
+#kurzorvaltas button {
+    border-radius: 20px;
+
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.6);
+
+    color: white;
+    font-weight: bolder;
+    padding: 10px;
+
+    transition: 0.2s;
+}
+
+#kurzorvaltas button:hover {
+    font-size: 17px;
+    text-decoration: underline;
+    transition: 0.2s;
+}
+
+
+.button_with_changed_cursor:hover {
+    cursor: url('../imgs/cursor.png'), auto;
+}
+
+
+
+
+
+
+
+
+
+
+.clicked_cursor {
+    animation-name: clicked_cursor;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+
+    border: 1px solid red;
+}
+
+
+
+
+@keyframes clicked_cursor {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        border: 1px solid red;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+        border: 1px solid red;
+    }
+}
+
+
+
+
+@keyframes cursorAnim1 {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0.5);
+    }
+}
+
+
+
+
+
+
+
+
+.clicked_img {
+    animation-name: clicked_img;
+    animation-duration: 1.0s;
+    animation-fill-mode: forwards;
+
+    border: 1px solid red;
+}
+
+
+
+
+@keyframes clicked_img {
+    0% {
+        border: 1px solid red;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(5);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        border: 3px solid gray;
+        opacity: 1;
+        border: 1px solid red;
+    }
+}
+
+
+
+
+
+
+
+.mouse_enter {
+    animation-name: mouse_entered;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.mouse_leave {
+    animation-name: mouse_leaved;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+
+
+
+
+@keyframes mouse_entered {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(7);
+
+        background-color: white;
+        mix-blend-mode: difference;
+    }
+}
+
+
+
+@keyframes mouse_leaved {
+    0% {
+        transform: translate(-50%, -50%) scale(7);
+
+        background-color: white;
+        mix-blend-mode: difference;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(4);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+.mouse_enter_buttons {
+    animation-name: mouse_entered_buttons;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.mouse_leave_buttons {
+    animation-name: mouse_leaved_buttons;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+
+
+
+
+@keyframes mouse_entered_buttons {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(50);
+
+        background-color: white;
+        mix-blend-mode: hue;
+    }
+}
+
+
+
+@keyframes mouse_leaved_buttons {
+    0% {
+        transform: translate(-50%, -50%) scale(50);
+
+        background-color: white;
+        mix-blend-mode: soft-light;
+        opacity: 0.1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(20);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
