@@ -1003,17 +1003,87 @@ a:hover, button:hover {
 
 
 
-#kurzorvaltas {
+
+
+#menufelul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    
     position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 5%;
+    height: 5%;
+    border: 2px solid black;
+    border-radius: 20px;
+
+    overflow: hidden;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.7);
+
+
+    animation-name: expandmenu;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+    animation-play-state: paused;
+}
+
+
+
+
+@keyframes expandmenu {
+    from {
+        width: 5%;
+        height: 5%;
+    }
+    to {
+        width: 500px;
+        height: 70px;
+
+        overflow-x: auto;
+    }
+}
+
+
+
+@keyframes closemenu {
+    from {
+        width: 500px;
+        height: 70px;
+
+        overflow-x: auto;
+    }
+    to {
+        width: 5%;
+        height: 5%;
+    }
+}
+
+
+
+
+
+
+
+#menufelul #kurzorvaltas, #menufelul #fullscreenbe, #menufelul #exitmenufelul  {
+    position: relative;
     top: 0px;
     left: 0px;
     padding: 10px;
+    width: fit-content;
+    height: fit-content;
 
     z-index: 8;
 }
 
 
-#kurzorvaltas button {
+#menufelul #kurzorvaltas button, #menufelul #fullscreenbe button, #menufelul #exitmenufelul button {
+    cursor: url("../imgs/cursor.png"), auto;
+
     border-radius: 20px;
 
     border: 2px solid rgba(255, 255, 255, 0.8);
@@ -1025,17 +1095,30 @@ a:hover, button:hover {
 
     transition: 0.2s;
 }
+#menufelul #exitmenufelul button {
+    background-color: rgba(255, 0, 0, 0.5);
+}
 
-#kurzorvaltas button:hover {
+#menufelul #kurzorvaltas button:hover, #menufelul #fullscreenbe button:hover, #menufelul #exitmenufelul button:hover {
     font-size: 17px;
     text-decoration: underline;
     transition: 0.2s;
 }
 
 
+
+
+
+
+
 .button_with_changed_cursor:hover {
     cursor: url('../imgs/cursor.png'), auto;
 }
+
+
+
+
+
 
 
 

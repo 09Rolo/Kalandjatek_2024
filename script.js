@@ -62,35 +62,17 @@ function loaded() {
 
 
 
-
-
-
-
-
-
-
-
 function kurzor() {
     let body = document.querySelector("body")
     body.id = "body"
     body = document.getElementById("body")
     
 
-    if(!document.querySelector("#kurzorvaltas")) {
-        body.innerHTML += `
-            <div class='cursor'></div>
-            <div class='cursor-border cursor_pulse'></div>
-        
-            <div id="kurzorvaltas">
-                <button onclick="changeKurzor()">Kurzor váltása</button>
-            </div>
-        `
-    } else {
-        body.innerHTML += `
-            <div class='cursor'></div>
-            <div class='cursor-border cursor_pulse'></div>
-        `
-    }
+
+    body.innerHTML += `
+        <div class='cursor'></div>
+        <div class='cursor-border cursor_pulse'></div>
+    `
 
     
     
@@ -115,6 +97,8 @@ function kurzor() {
             left: posX + "px",
             top: posY + "px"
         }, {duration: 500, fill: "forwards"})
+
+        
     })
 
 
@@ -235,30 +219,71 @@ function kurzor() {
         let kozep = document.getElementById("kozep_p")
 
     
-    
-        kozep.addEventListener("mouseenter", () => {
-            cursor.classList.remove("mouse_enter_buttons")
-            cursor.classList.remove("mouse_leave_buttons")
+        if(kozep) {
+            kozep.addEventListener("mouseenter", () => {
+                cursor.classList.remove("mouse_enter_buttons")
+                cursor.classList.remove("mouse_leave_buttons")
 
-            cursor.classList.remove("mouse_leave")
-            cursor.classList.add("mouse_enter")
-            cursor_border.style.border = "none"
-            cursor_border.classList.remove("cursor_pulse")
-        })
+                cursor.classList.remove("mouse_leave")
+                cursor.classList.add("mouse_enter")
+                cursor_border.style.border = "none"
+                cursor_border.classList.remove("cursor_pulse")
+            })
+        
+
+        
+            kozep.addEventListener("mouseleave", () => {
+                cursor.classList.remove("mouse_enter_buttons")
+                cursor.classList.remove("mouse_leave_buttons")
+
+                cursor.classList.add("mouse_leave")
+                cursor.classList.remove("mouse_enter")
+                cursor_border.style.border = "2px solid rgba(255, 255, 255, 0.5)"
+                cursor_border.classList.add("cursor_pulse")
+            })
+        }
+
+    }, 2000)
+
+
+
+
+
+    setTimeout(() => {
+
+        let megnevezesek = document.getElementsByClassName("megnevezes")
+
+        for(let v = 0; v < megnevezesek.length; v++) {
+            megnevezesek[v].id = "megnevezes_" + v
+
+            let megnevezes_valamelyik = document.getElementById("megnevezes_" + v)
+    
+    
+            megnevezes_valamelyik.addEventListener("mouseenter", () => {
+                cursor.classList.remove("mouse_enter_buttons")
+                cursor.classList.remove("mouse_leave_buttons")
+
+                cursor.classList.remove("mouse_leave")
+                cursor.classList.add("mouse_enter")
+                cursor_border.style.border = "none"
+                cursor_border.classList.remove("cursor_pulse")
+            })
     
             
     
-        kozep.addEventListener("mouseleave", () => {
-            cursor.classList.remove("mouse_enter_buttons")
-            cursor.classList.remove("mouse_leave_buttons")
+            megnevezes_valamelyik.addEventListener("mouseleave", () => {
+                cursor.classList.remove("mouse_enter_buttons")
+                cursor.classList.remove("mouse_leave_buttons")
 
-            cursor.classList.add("mouse_leave")
-            cursor.classList.remove("mouse_enter")
-            cursor_border.style.border = "2px solid rgba(255, 255, 255, 0.5)"
-            cursor_border.classList.add("cursor_pulse")
-        })
+                cursor.classList.add("mouse_leave")
+                cursor.classList.remove("mouse_enter")
+                cursor_border.style.border = "2px solid rgba(255, 255, 255, 0.5)"
+                cursor_border.classList.add("cursor_pulse")
+            })
+        }
 
     }, 2000)
+
 
 
 
@@ -331,12 +356,110 @@ function kurzor() {
     }, 2000);
 
 
-
 }
 
 
 
+
+
+
+
+menufelul()
+
+function menufelul() {
+
+    window.addEventListener("keydown", (event) => {
+          if (event.defaultPrevented) {
+            return;
+          }
+      
+          let handled = false;
+          if (event.key !== undefined) {
+            
+            if (event.key == "Escape") {
+                openmenufelul()
+            }
+
+            handled = true;
+          } else if (event.keyCode !== undefined) {
+            handled = true;
+          }
+      
+          if (handled) {
+            event.preventDefault();
+          }
+        },
+        true,
+    );
+}
+
+
+
+
+function openmenufelul() {
+
+    if (!document.getElementById("menufelul")) {
+        let div = document.createElement('div');
+        div.id = "menufelul"
+
+        div.innerHTML = `
+            <div id="kurzorvaltas">
+                <button onclick="changeKurzor()">Kurzor váltása</button>
+            </div>
+
+            <div id="fullscreenbe">
+                <button onclick="fullscreenmod()">Teljes képernyős mód</button>
+            </div>
+
+            <div id="exitmenufelul">
+                <button onclick="exitmenufelul()">Bezárás</button>
+            </div>
+        `
+
+        document.body.appendChild(div);
+    
+
+
+        document.getElementById("menufelul").style.animationPlayState = "running"
+
+        setTimeout(() => {
+            document.getElementById("menufelul").style.animationPlayState = "paused"
+        }, 1000)
+
+
+    } else {
+        exitmenufelul()
+    }
+}
+
+
+
+
+function exitmenufelul() {
+    let menu = document.getElementById("menufelul")
+
+    menu.style.animationName = "closemenu"
+    menu.style.animationPlayState = "running"
+
+    setTimeout(() => {
+        menu.style.animationPlayState = "paused"
+        document.getElementById("menufelul").remove()
+    }, 900)
+}
+
+
+
+
+
+
+
+
+
+
+
 function changeKurzor() {
+    exitmenufelul()
+
     let body = document.getElementById("body")
     
     
@@ -372,6 +495,36 @@ function changeKurzor() {
     }
     
 }
+
+
+
+
+
+
+
+
+function fullscreenmod(first) {
+    if (!first) {
+        exitmenufelul()
+    }
+
+    
+    let doc = document.documentElement
+
+
+    if (doc.requestFullscreen) {
+        doc.requestFullscreen()
+    } else if (doc.webkitRequestFullscreen) { /* Safari --ezek szerint más is kell :) */
+        doc.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 --ezek szerint más is kell :)*/
+        doc.msRequestFullscreen();
+    }
+}
+
+
+
+
+
 
 
 
@@ -643,34 +796,21 @@ function kuzdelem_vaassal(oke) {
         }, maxms*1000)
 
 
-        window.addEventListener(
-            "keydown",
-            (event) => {
-              if (event.defaultPrevented) {
-                return;
-              }
-          
-              let handled = false;
-              if (event.key !== undefined) {
-                
 
-                keys += event.key
+
+
+
+        window.addEventListener("keyup", (event) => {
+            if (event.isComposing || event.keyCode === 229) {
+              return;
+            }
+            
+            keys += event.key
 
                 
-                console.log(keys)
+            console.log(keys)
+        });
 
-                
-                handled = true;
-              } else if (event.keyCode !== undefined) {
-                handled = true;
-              }
-          
-              if (handled) {
-                event.preventDefault();
-              }
-            },
-            true,
-          );
 
     } else if (oke == "reset") {
 
