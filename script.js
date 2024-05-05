@@ -479,16 +479,18 @@ function getCookie(cname) {
     return "";
 }
 
+//Saját innen
 
 
 function checkCookieCursor() {
+    console.log(document.cookie)
+
+
     let cursor = getCookie("cursor");
 
     if (cursor != "") {
         if (cursor == "none") {
             changeKurzor("first")
-        } else {
-            //semmi
         }
     } else {
         //semmi
@@ -535,8 +537,13 @@ function changeKurzor(first) {
         let ak = document.querySelector("a")
         let buttons = document.querySelector("button")
 
-        buttons.classList.add("button_with_changed_cursor")
-        ak.classList.add("button_with_changed_cursor")
+        if (buttons) {
+            buttons.classList.add("button_with_changed_cursor")
+        }
+
+        if (ak) {
+            ak.classList.add("button_with_changed_cursor")
+        }
        
 
 
@@ -548,8 +555,13 @@ function changeKurzor(first) {
         let ak = document.querySelector("a")
         let buttons = document.querySelector("button")
 
-        buttons.classList.remove("button_with_changed_cursor")
-        ak.classList.remove("button_with_changed_cursor")
+        if (buttons) {
+            buttons.classList.remove("button_with_changed_cursor")
+        }
+
+        if (ak) {
+            ak.classList.remove("button_with_changed_cursor")
+        }
 
         kurzor()
     }
@@ -904,6 +916,4 @@ function kuzdelem_vaassal(oke) {
         
     }
 }
-
-
 
