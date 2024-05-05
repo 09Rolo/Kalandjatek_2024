@@ -78,7 +78,7 @@ function kurzor() {
     
     const cursor = document.querySelector(".cursor")
     const cursor_border = document.querySelector(".cursor-border")
-    
+
     document.addEventListener("mousemove", (merre) => {
     
         const posX = merre.clientX
@@ -97,8 +97,6 @@ function kurzor() {
             left: posX + "px",
             top: posY + "px"
         }, {duration: 500, fill: "forwards"})
-
-        
     })
 
 
@@ -457,8 +455,64 @@ function exitmenufelul() {
 
 
 
-function changeKurzor() {
-    exitmenufelul()
+/* Meg kellene tartani a megváltoztatott kurzort, hogyaha átlép valaki egy másik oldalra, akkor is a megváltoztatott maradjon */
+
+checkCookieCursor()
+
+
+
+//Nem saját
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}
+
+
+
+function checkCookieCursor() {
+    let cursor = getCookie("cursor");
+
+    if (cursor != "") {
+        if (cursor == "none") {
+            changeKurzor("first")
+        } else {
+            //semmi
+        }
+    } else {
+        //semmi
+    }
+}
+
+function setCookie(cname, cvalue) {
+    document.cookie = cname + "=" + cvalue + ";";
+}
+
+
+
+
+
+
+
+
+
+
+
+function changeKurzor(first) {
+    if (!first) {
+        exitmenufelul()
+    }
 
     let body = document.getElementById("body")
     
@@ -468,6 +522,9 @@ function changeKurzor() {
     
 
     if (document.querySelector(".cursor")) {
+        setCookie("cursor", "none")
+
+
         cursor.remove()
         cursor_border.remove()
 
@@ -484,6 +541,9 @@ function changeKurzor() {
 
 
     } else {
+        setCookie("cursor", "megcuccolt")
+
+
         body.style.cursor = "none"
         let ak = document.querySelector("a")
         let buttons = document.querySelector("button")
@@ -844,3 +904,6 @@ function kuzdelem_vaassal(oke) {
         
     }
 }
+
+
+
