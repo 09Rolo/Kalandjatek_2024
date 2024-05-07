@@ -12,7 +12,9 @@ function loaded_oldal(what) {
     if (what) {
         if (what != "index") {
             if (what != "gameover") {
-                beuszas()
+                if (what != "victory") {
+                    beuszas()
+                }
             }
         }
         
@@ -26,6 +28,24 @@ function loaded_oldal(what) {
             }, 2500);
 
         }
+
+
+
+
+        if (what == "victory") {
+            let bgvid = document.getElementById("bgvideo")
+
+            bgvid.style.zIndex = 5
+
+            setTimeout(() => {
+                bgvid.style.zIndex = -1
+            }, 2500);
+
+
+            startstablista()
+        }
+
+
     } else {
         beuszas()
     }
@@ -727,6 +747,85 @@ function iras(elem) {
 
 
 
+function readbeforeplay() {
+    setTimeout(() => {
+        
+        let foszovegbox = document.getElementById("bal_1")
+        let foszovegbox_szoveg = document.querySelectorAll("#bal_1 > *")
+
+        if (foszovegbox) {
+            foszovegbox.style.minWidth = "100%"
+            foszovegbox.style.minHeight = "100vh"
+            foszovegbox.style.borderRadius = "0px"
+            foszovegbox.style.backgroundColor = "black"
+            
+            foszovegbox.style.display = "flex"
+            foszovegbox.style.flexDirection = "column"
+            foszovegbox.style.justifyContent = "center"
+            foszovegbox.style.alignItems = "center"
+            foszovegbox.style.alignContent = "center"
+            
+            foszovegbox_szoveg.forEach(elem => {
+                elem.style.textAlign = "center"
+            });
+            
+        }
+
+
+    }, 200)
+}
+
+
+
+
+
+
+
+
+function startstablista() {
+
+    setTimeout(() => {
+        let stablista = document.getElementById("stablista")
+        let stablistaszovegek = document.querySelectorAll("#szereplok > *")
+
+        stablistaszovegek.forEach(elem => {
+            elem.style.animationPlayState = "running"
+        });
+
+        if (stablista) {
+            stablista.style.animationPlayState = "running"
+        }
+    }, 5500)
+
+
+
+    setTimeout(() => {
+        let stablistaszereplok = document.getElementById("szereplok")
+
+        stablistaszereplok.style.animationName = "stablistagorgetes"
+        stablistaszereplok.style.animationDuration = "500s"
+        stablistaszereplok.style.animationPlayState = "running"
+
+    }, 9000);
+
+
+    setTimeout(() => {
+        let osszszereplo = document.getElementById("osszszereplo")
+        osszszereplo.style.display = ""
+
+        let stablista = document.getElementById("stablista")
+        stablista.style.display = "none"
+    }, 60*1000)
+
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -916,4 +1015,3 @@ function kuzdelem_vaassal(oke) {
         
     }
 }
-
