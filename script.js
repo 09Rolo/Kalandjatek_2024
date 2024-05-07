@@ -1,4 +1,4 @@
-/* Minden sort próbáltam én saját magam megírni, van vagy 15 amit nem én írtam, a tösbbi saját */
+/* Minden sort próbáltam én saját magam megírni, van vagy 35 amit nem én írtam, a többi saját */
 
 
 kurzor()
@@ -64,7 +64,7 @@ function loaded_oldal(what) {
         
             setTimeout(() => {
                 window.location.replace(locslice + "tizennegyedik.html")
-            }, 4000);
+            }, 8000);
         }
 
 
@@ -969,7 +969,7 @@ function kuzdelem_vaassal(oke) {
         book.style.display = "flex"
         book.style.animationPlayState = "running"
 
-        let maxms = 10
+        let maxms = 15
         for (let i = 0; i <= maxms; i++) {
             setTimeout(() => {
                 document.getElementById("msbillhez").innerHTML = maxms - i
@@ -1054,7 +1054,7 @@ function kihalmeg(oke) {
         book.style.display = "flex"
         book.style.animationPlayState = "running"
 
-        let maxms = 5
+        let maxms = 10
         for (let i = 0; i <= maxms; i++) {
             setTimeout(() => {
                 document.getElementById("msbillhez").innerHTML = maxms - i
