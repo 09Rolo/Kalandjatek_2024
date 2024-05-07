@@ -13,7 +13,9 @@ function loaded_oldal(what) {
         if (what != "index") {
             if (what != "gameover") {
                 if (what != "victory") {
-                    beuszas()
+                    if (what != "withnagykep") {
+                        beuszas()
+                    }
                 }
             }
         }
@@ -43,6 +45,26 @@ function loaded_oldal(what) {
 
 
             startstablista()
+        }
+
+
+
+        if (what == "withnagykep") {
+
+            let curr_loc = window.location.href
+            let loc_len = curr_loc.length
+            let loc_split = curr_loc.split("/")
+            let loc_slice_that = loc_split[loc_split.length - 1]
+        
+            let locslice = curr_loc.slice(0, loc_len - loc_slice_that.length)
+            /* huhh */
+        
+            console.log(locslice)
+        
+        
+            setTimeout(() => {
+                window.location.replace(locslice + "tizennegyedik.html")
+            }, 4000);
         }
 
 
@@ -1010,6 +1032,91 @@ function kuzdelem_vaassal(oke) {
             let locslice = curr_loc.slice(0, loc_len - loc_slice_that.length)
 
             window.location.replace(locslice + "gameover.html")
+
+        }
+        
+    }
+}
+
+
+
+
+
+
+
+
+let key = null
+
+function kihalmeg(oke) {
+    let book = document.getElementById("book")
+
+    if (!oke) {
+        book.style.display = "flex"
+        book.style.animationPlayState = "running"
+
+        let maxms = 5
+        for (let i = 0; i <= maxms; i++) {
+            setTimeout(() => {
+                document.getElementById("msbillhez").innerHTML = maxms - i
+            }, i*1000)
+        }
+
+
+        setTimeout(() => {
+            let curr_loc = window.location.href
+            let loc_len = curr_loc.length
+            let loc_split = curr_loc.split("/")
+            let loc_slice_that = loc_split[loc_split.length - 1]
+
+            let locslice = curr_loc.slice(0, loc_len - loc_slice_that.length)
+
+            window.location.replace(locslice + "gameover.html")
+        }, maxms*1000)
+
+
+
+
+
+
+        window.addEventListener("keyup", (event) => {
+            if (event.isComposing || event.keyCode === 229) {
+              return;
+            }
+            
+            key = event.key
+
+                
+            console.log(key)
+        });
+
+
+    } else if (oke == "reset") {
+
+        window.location.reload()
+
+    } else if (oke == "oke") {
+
+        if (key == "a") {
+            //Péter Miklós
+            let curr_loc = window.location.href
+            let loc_len = curr_loc.length
+            let loc_split = curr_loc.split("/")
+            let loc_slice_that = loc_split[loc_split.length - 1]
+        
+            let locslice = curr_loc.slice(0, loc_len - loc_slice_that.length)
+
+            window.location.replace(locslice + "tizenhatodik_pm.html")
+
+        } else if (key == "f") {
+            //Nemes Tamás
+            let curr_loc = window.location.href
+            let loc_len = curr_loc.length
+            let loc_split = curr_loc.split("/")
+            let loc_slice_that = loc_split[loc_split.length - 1]
+        
+            let locslice = curr_loc.slice(0, loc_len - loc_slice_that.length)
+
+            window.location.replace(locslice + "tizenhatodik_nt.html")
 
         }
         
