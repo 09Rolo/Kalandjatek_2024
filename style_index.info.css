@@ -574,15 +574,16 @@ a:hover, button:hover {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: black;
+    background-color: gray;
     mix-blend-mode: difference;
-    opacity: 0.5;
+    opacity: 1;
     transition: opacity ease 250ms;
 }
 
 
 
 .slider-nav a:hover {
+    background-color: white;
     opacity: 1;
 }
 

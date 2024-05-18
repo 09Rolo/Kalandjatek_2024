@@ -960,6 +960,7 @@ function bohocugras() {
 
 
 
+
 let keys = []
 
 function kuzdelem_vaassal(oke) {
